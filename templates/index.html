@@ -1,0 +1,289 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+     <title>Nurulloning portfolyasi</title>
+
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+     <meta name="description" content="">
+     <meta name="keywords" content="">
+     <meta name="author" content="Tooplate">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+     <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+     <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+     <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+
+     <!-- MAIN CSS -->
+     <link rel="stylesheet" href="{% static 'css/tooplate-ben-resume-style.css' %}">
+<!--
+Tooplate 2120 Ben Resume
+https://www.tooplate.com/view/2120-ben-resume
+-->
+</head>
+
+<body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+
+    <!-- MENU BAR -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+
+            <a class="navbar-brand" href="#">
+                Ravshanov Nurullo
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a href="#intro" class="nav-link smoothScroll">Bosh sahifa</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link smoothScroll">Haqida</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#testimonials" class="nav-link smoothScroll">Fikirlar</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link smoothScroll">Aloqa uchun</a>
+                    </li>
+                </ul>
+
+                <div class="mt-lg-0 mt-3 mb-4 mb-lg-0">
+                    <a href="https://www.instagram.com/nurillobek/" class="custom-btn btn" download>nurillobek</a>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="hero d-flex flex-column justify-content-center align-items-center" id="intro">
+
+         <div class="container">
+            <div class="row">
+                {% for i in enterance %}
+
+                  <div class="mx-auto col-lg-5 col-md-5 col-10">
+                      <img src="{{ i.img.url }}" class="img-fluid" alt="Ben Resume HTML Template">
+                  </div>
+
+                   <div class="d-flex flex-column justify-content-center align-items-center col-lg-7 col-md-7 col-12">
+                        <div class="hero-text">
+
+                            <h1 class="hero-title">👋{{ i.name }}</h1>
+
+                            <a href="https://www.instagram.com/nurillobek/" class="email-link">
+                                nurillobek
+                            </a>
+                          
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="about section-padding" id="about">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-6 col-md-6 col-12">
+                    {% for i in about %}
+                    <h3 class="mb-4">{{ i.title }}</h3>
+
+                    <p>{{ i.text_1 }}</p>
+
+                    <p>{{ i.text_2 }}</p>
+                    {% endfor %}
+
+                    {% for i in about_info %}
+
+                    <ul class="mt-4 mb-5 mb-lg-0 profile-list list-unstyled">
+                        <li><strong>Full Name :</strong>{{ i.full_name }}</li>
+
+                        <li><strong>Date of Birth:</strong>{{ i.date_of_birth }}</li>
+
+                        <li><strong>Website :</strong>{{ i.about_instagram }}</li>
+
+                        <li><strong>Email :</strong>{{ i.email }}</li>
+                    </ul>
+                    {% endfor %}
+                </div>
+                {% for i in about_me_photo %}
+
+                <div class="col-lg-5 mx-auto col-md-6 col-12">
+                    <img src="{{ i.img.url }}" class="about-image img-fluid" alt="Ben's Resume HTML Template">
+                </div>
+                {% endfor %}
+
+            </div>
+            <div class="row about-third">
+                {% for i in know_me %}
+            	<div class="col-lg-4 col-md-4 col-12">
+                <h3>{{ i.title }}</h3>
+                <p>{{ i.text }}</p>
+                </div>
+                {%endfor %}
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- TESTIMONIAL -->
+     <section class="testimonials section-padding" id="testimonials">
+          <div class="container">
+               <div class="row">
+
+                    <div class="col-12">
+                        <h3 class="mb-5 text-center">Odamlarni men haqqimda fikri </h3>
+
+                        <div class="owl-carousel owl-theme" id="testimonials-carousel">
+                            {% for i in comment %}
+                            <div class="item">
+                                <div class="testimonials-thumb d-flex">
+                                    <div class="testimonials-image">
+                                        <img src="{{ i.img.url }}" class="img-fluid" alt="testimonials image">
+                                    </div>
+
+                                    <div class="testimonials-info">
+                                        <p>{{ i.short_text }}</p>
+
+                                        <h6 class="mb-0">{{ i.name }}</h6>
+                                        <span>{{ i.jop }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                        </div>
+
+                    </div>
+
+               </div>
+          </div>
+     </section>
+
+
+     <!-- FAQ -->
+     <section class="faq section-padding">
+        
+        <div class="container">
+            
+            <div class="row">
+
+                <div class="col-lg-12 col-12">
+
+                    <h3 class="mb-5">Teztez beriladigon savollar </h3>
+                    {% for i in savollar %}
+
+                    <div class="accordion" id="accordionExample">
+                      <div class="card">
+                        <div class="card-header" id="headingOne">
+                          <h2 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                              {{ i.question }}
+                            </button>
+                          </h2>
+                        </div>
+
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                          <div class="card-body">
+                            <p>{{ i.answer  }}</p>
+                          </div>
+                        </div>
+                      </div>
+                        {% endfor %}
+
+
+                    <span class="faq-info-text">Yanaboshqa savoolariz bo'lsa bemalol <strong>menga yuborishingiz mumkun</strong></span>
+
+                </div>
+
+           	 </div><!-- col -->
+        	</div><!-- row -->
+        </div><!-- container -->
+    </section>
+
+
+     <section class="contact section-padding pt-0" id="contact">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-6 col-md-6 col-12">
+            <form action="{% url 'create_message_urls' %}" method="post" class="contact-form webform"  role="form">
+                {% csrf_token %}
+
+                <div class="form-group d-flex flex-column-reverse">
+                    <input type="text" name="name" id="cf-name" placeholder="Ism familyangizni kiriting" required>
+
+                    <label for="cf-name" class="webform-label">Ism familyangizni kiriting</label>
+                </div>
+
+                <div class="form-group d-flex flex-column-reverse">
+                    <input type="email" name="email" id="cf-email" placeholder="Emailingizni kiriting" required>
+
+                    <label for="cf-email" class="webform-label">Emailingizni kiriting</label>
+                </div>
+
+                <div class="form-group d-flex flex-column-reverse">
+                    <textarea class="form-control" name="message" id="cf-message" placeholder="Xabar qoldiring" required></textarea>
+
+                    <label for="cf-message" class="webform-label">Xabar</label>
+                </div>
+
+                <button type="submit" class="form-control" id="submit-button" name="submit">Yuborish</button>
+            </form>
+          </div>
+
+            <div class="mx-auto col-lg-4 col-md-6 col-12">
+                <h3 class="my-4 pt-4 pt-lg-0">Tomonidan </h3>
+
+                <p class="mb-1">001-031-1994</p>
+
+                <p>
+                    <a href="#">
+                        nurilloravshanov@gmail.com
+                    <i class="fas fa-arrow-right custom-icon"></i>
+                    </a>
+                </p>
+                {% for i in info %}
+
+                <ul class="social-links mt-2">
+                    <li><a href="{{ i.facebook }}" rel="noopener" class="fab fa-facebook"></a></li>
+                    <li><a href="{{ i.twitter }}" rel="noopener" class="fab fa-twitter"></a></li>
+                    <li><a href="{{ i.contact_instagram}}" rel="noopener" class="fab fa-instagram"></a></li>
+                    <li><a href="{{ i.you_tube }}" rel="noopener" class="fab fa-youtube"></a></li>
+                </ul>
+                {% endfor %}
+                
+              <p class="copyright-text mt-5 pt-3">Copyright &copy; 2023 Ravshanov Nurillo Page</p>
+                
+                <p>BASCEND: <a href="https://www.instagram.com/nurillobek/" title="free HTML templates" target="_blank">nurillobek</a></p>
+            </div>
+
+        </div>
+      </div>
+    </section>
+     <!-- SCRIPTS -->
+     <script src="{% static 'js/jquery.min.js' %}"></script>
+     <script src="{% static 'js/bootstrap.min.js' %}"></script>
+     <script src="{% static 'js/smoothscroll.js' %}"></script>
+     <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+     <script src="{% static 'js/custom.js' %}"></script>
+
+</body>
+</html>
